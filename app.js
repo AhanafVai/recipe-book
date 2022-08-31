@@ -6,24 +6,24 @@ const error = document.querySelector("#error");
 const btn = document.getElementById("searchBtn");
 
 // Filter function
-const category = () => {
+const category = async () => {
   cardContainer.innerHTML = "";
   const url = `https://www.themealdb.com/api/json/v1/1/filter.php?c=Seafood`;
-  fetch(url)
-    .then((res) => res.json())
-    .then((data) => displayMenu(data.meals));
+  const res = await fetch(url);
+  const data = await res.json();
+  displayMenu(data.meals);
 };
 
-const area = () => {
+const area = async () => {
   cardContainer.innerHTML = "";
   const url = `https://www.themealdb.com/api/json/v1/1/filter.php?a=Canadian`;
-  fetch(url)
-    .then((res) => res.json())
-    .then((data) => displayMenu(data.meals));
+  const res = await fetch(url);
+  const data = await res.json();
+  displayMenu(data.meals);
 };
 
 // Search function
-const search = () => {
+const search = async () => {
   cardContainer.innerHTML = "";
   const searchMenu = document.getElementById("searchMenu").value;
   searchMenu.value = "";
@@ -31,9 +31,9 @@ const search = () => {
     error.innerText = "Enter Category plz";
   } else {
     const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${searchMenu}`;
-    fetch(url)
-      .then((res) => res.json())
-      .then((data) => displayMenu(data.meals));
+    const res = await fetch(url);
+    const data = await res.json();
+    displayMenu(data.meals);
   }
 };
 
@@ -50,8 +50,8 @@ btn.addEventListener("click", () => {
 
 // Menu
 const displayMenu = (recipes) => {
+  document.getElementById("searchMenu").value = "";
   if (recipes === null) {
-    document.getElementById("searchMenu").value = "";
     cardContainer.innerHTML = `<p class="text-4xl text-center my-14 text-slate-300 font-bold"><q>sorry not found!</q> </p>`;
   } else {
     recipes.forEach((recipe) => {
