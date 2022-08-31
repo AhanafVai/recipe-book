@@ -7,6 +7,7 @@ const btn = document.getElementById("searchBtn");
 
 // Filter function
 const category = () => {
+  cardContainer.innerHTML = "";
   const url = `https://www.themealdb.com/api/json/v1/1/filter.php?c=Seafood`;
   fetch(url)
     .then((res) => res.json())
@@ -14,6 +15,7 @@ const category = () => {
 };
 
 const area = () => {
+  cardContainer.innerHTML = "";
   const url = `https://www.themealdb.com/api/json/v1/1/filter.php?a=Canadian`;
   fetch(url)
     .then((res) => res.json())
@@ -22,6 +24,7 @@ const area = () => {
 
 // Search function
 const search = () => {
+  cardContainer.innerHTML = "";
   const searchMenu = document.getElementById("searchMenu").value;
   searchMenu.value = "";
   if (searchMenu === "") {
@@ -48,6 +51,7 @@ btn.addEventListener("click", () => {
 // Menu
 const displayMenu = (recipes) => {
   if (recipes === null) {
+    document.getElementById("searchMenu").value = "";
     cardContainer.innerHTML = `<p class="text-4xl text-center my-14 text-slate-300 font-bold"><q>sorry not found!</q> </p>`;
   } else {
     recipes.forEach((recipe) => {
