@@ -18,7 +18,7 @@ installed on your computer. From your command line:
 
 ```bash
 # Clone this repository
-$ git clone https://github.com/AhanafVai/amazon-clone.git
+$ git clone https://github.com/AhanafVai/recipe-book.git
 
 # Go into the repository
 $ cd filename
