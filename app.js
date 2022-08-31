@@ -3,6 +3,9 @@ const cardContainer = document.querySelector("#cardContainer");
 const modalContainer = document.querySelector("#modalContainer");
 const modalDiv = document.createElement("dialog");
 const error = document.querySelector("#error");
+const btn = document.getElementById("searchBtn");
+
+// event listener
 
 // Search function
 const search = () => {
@@ -17,6 +20,16 @@ const search = () => {
       .then((data) => displayMenu(data.meals));
   }
 };
+
+document.getElementById("searchMenu").addEventListener("keyup", (e) => {
+  e.preventDefault();
+  if (e.keyCode === 13) {
+    search();
+  }
+});
+btn.addEventListener("click", () => {
+  search();
+});
 
 // Menu
 const displayMenu = (recipes) => {
