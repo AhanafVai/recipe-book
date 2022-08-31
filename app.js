@@ -5,7 +5,20 @@ const modalDiv = document.createElement("dialog");
 const error = document.querySelector("#error");
 const btn = document.getElementById("searchBtn");
 
-// event listener
+// Filter function
+const category = () => {
+  const url = `https://www.themealdb.com/api/json/v1/1/filter.php?c=Seafood`;
+  fetch(url)
+    .then((res) => res.json())
+    .then((data) => displayMenu(data.meals));
+};
+
+const area = () => {
+  const url = `https://www.themealdb.com/api/json/v1/1/filter.php?a=Canadian`;
+  fetch(url)
+    .then((res) => res.json())
+    .then((data) => displayMenu(data.meals));
+};
 
 // Search function
 const search = () => {
@@ -21,6 +34,7 @@ const search = () => {
   }
 };
 
+// event listener
 document.getElementById("searchMenu").addEventListener("keyup", (e) => {
   e.preventDefault();
   if (e.keyCode === 13) {
