@@ -1,6 +1,6 @@
 ![Desktop](./images/desktop.png)
 
-# Recipe-book
+# Over view
 
 Do you enjoy cooking? If yes then you know how hard it is to find the perfect recipe. This app was created with the goal to ease your tantrum so you can focus on your cooking.
 The main objectives of this website are following
