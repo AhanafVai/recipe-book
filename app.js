@@ -26,10 +26,10 @@ const area = async () => {
 const search = async () => {
   cardContainer.innerHTML = "";
   const searchMenu = document.getElementById("searchMenu").value;
-  searchMenu.value = "";
   if (searchMenu === "") {
-    error.innerText = "Enter Category plz";
+    error.innerHTML = `<p class="text-base text-red-500 text-right mr-10 mt-2">Empty value not excepted</p>`;
   } else {
+    error.innerHTML = "";
     const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${searchMenu}`;
     const res = await fetch(url);
     const data = await res.json();
@@ -52,7 +52,7 @@ btn.addEventListener("click", () => {
 const displayMenu = (recipes) => {
   document.getElementById("searchMenu").value = "";
   if (recipes === null) {
-    cardContainer.innerHTML = `<p class="text-4xl text-center my-14 text-slate-300 font-bold"><q>sorry not found!</q> </p>`;
+    cardContainer.innerHTML = `<p class="grid col-span-2 text-6xl text-center text-gray-300 font-bold my-10 lg:col-span-3">"No match found!"</p>`;
   } else {
     recipes.forEach((recipe) => {
       const cardDiv = document.createElement("div");
@@ -90,7 +90,7 @@ const recipe = (items) => {
       }">
   </figure>
  <div>
-   <div class=" my-5 space-x-2">
+   <div class=" my-5 space-x-2 md:space-x-1">
     <button type="button" class="p-1  text-sm  text-slate-300 focus:outline-none bg-gray-800 rounded-lg focus:bg-slate-300 focus:text-gray-800 md:rounded-none lg:text-lg lg:p-2" onclick="getElementById('instructions').classList.toggle('hidden'),getElementById('ingredients').classList.add('hidden')">Instructions</button>
     <button type="button" class="p-1  text-sm  text-slate-300 focus:outline-none bg-gray-800 rounded-lg md:rounded-none lg:text-lg lg:p-2" onclick="getElementById('ingredients').classList.toggle('hidden'),getElementById('instructions').classList.add('hidden')">Ingredients</button>
     <button type="button" class="p-1  text-sm  text-slate-300 focus:outline-none bg-gray-800 rounded-lg md:rounded-none lg:text-lg lg:p-2">
@@ -98,12 +98,10 @@ const recipe = (items) => {
     </button>
    </div>
    <article id="instructions" class="hidden px-1 text-justify">
-   <details>
-     <summary class="text-sm lg:text-lg">${item.strInstructions.slice(
-       350
-     )}</summary>
-  <p class="text-sm lg:text-lg">${item.strInstructions.slice(-350)}</p>
-</details>
+ 
+     <p class="text-sm lg:text-lg">${item.strInstructions.slice(-300)}</p>
+ 
+
  
    </article>
    <ul id="ingredients" class="hidden">

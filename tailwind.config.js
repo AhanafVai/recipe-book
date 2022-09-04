@@ -8,7 +8,9 @@ module.exports = {
       xl: "1440px",
     },
     extend: {
-      fontFamily: {},
+      fontFamily: {
+        Lato: "'lato',serif",
+      },
 
       colors: {},
     },
