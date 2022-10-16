@@ -97,9 +97,7 @@ const recipe = (items) => {
     <figcaption class="w-full text-lg text-left font-semibold text-gray-800  md:text-2xl ">
       <p class="my-2 md:mb-10">${item.strMeal}</p>
     </figcatpion>
-     <img class="rounded-3xl md:rounded-none" src="${item.strMealThumb}" alt="${
-        item.strMeal
-      }">
+     <img class="rounded-3xl md:rounded-none" src="${item.strMealThumb}" alt="${item.strMeal}">
   </figure>
  <div>
    <div class=" my-5 space-x-2 md:space-x-1">
@@ -111,13 +109,13 @@ const recipe = (items) => {
    </div>
    <article id="instructions" class="hidden px-1 text-justify">
  
-     <p class="text-sm lg:text-lg">${item.strInstructions.slice(-300)}</p>
+     <p class="text-sm w-72 h-80 overflow-auto lg:text-lg">${item.strInstructions}</p>
  
 
  
    </article>
    <ul id="ingredients" class="hidden">
-  <li>${item.strIngredient1}</li>
+        <li>${item.strIngredient1}</li>
         <li>${item.strIngredient2}</li>
         <li>${item.strIngredient3}</li>
         <li>${item.strIngredient4}</li>
