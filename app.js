@@ -109,7 +109,7 @@ const recipe = (items) => {
    </div>
    <article id="instructions" class="hidden px-1 text-justify">
  
-     <p class="text-sm w-72 h-80 overflow-auto lg:text-lg">${item.strInstructions}</p>
+     <p class="text-sm p-4 w-56 h-40 overflow-auto md:w-72 md:h-40 lg:text-lg">${item.strInstructions}</p>
  
 
  
